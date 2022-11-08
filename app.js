@@ -13,6 +13,7 @@ const attendanceRouter = require('./routes/attendance');
 const noticeRouter = require('./routes/notice');
 const studentInfoRouter = require('./routes/student_Info');
 const talentRouter = require('./routes/talent');
+const albumRouter = require('./routes/album');
 
 dotenv.config();
 
@@ -48,6 +49,7 @@ app.use('/studentInfo', studentInfoRouter);
 app.use('/talent', talentRouter);
 app.use('/attendance', attendanceRouter);
 app.use('/notice', noticeRouter);
+app.use('/album', albumRouter);
 
 app.use((req, res, next) => {
     next('Not found error!')
