@@ -9,6 +9,10 @@ const session = require('express-session');
 const nunjucks = require('nunjucks');
 
 const infoRouter = require('./routes/info');
+const attendanceRouter = require('./routes/attendance');
+const noticeRouter = require('./routes/notice');
+const studentInfoRouter = require('./routes/student_Info');
+const talentRouter = require('./routes/talent');
 
 dotenv.config();
 
@@ -40,6 +44,10 @@ app.use(
 );
 
 app.use('/info', infoRouter);
+app.use('/studentInfo', studentInfoRouter);
+app.use('/talent', talentRouter);
+app.use('/attendance', attendanceRouter);
+app.use('/notice', noticeRouter);
 
 app.use((req, res, next) => {
     next('Not found error!')
