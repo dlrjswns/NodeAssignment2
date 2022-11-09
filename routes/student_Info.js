@@ -22,7 +22,7 @@ router.post("/register", (req, res) => {
     const { id, name, gender } = req.body;
     // const student = req.body;
     // users.push(student);
-    users[id] = { name, gender };
+    users[id] = { name, gender }; // array of object
     console.log( users[id].name + "학생이 저장되었습니다.");
     // res.send(student);
 })
