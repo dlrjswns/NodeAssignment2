@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
         console.log( users[id].name + "학생이 저장되었습니다.");
     }
     // res.send(student);
-})
+});
 
 router.get("/delete", (req, res) => {
     const id = req.query.id;
