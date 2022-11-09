@@ -52,7 +52,7 @@ app.use('/notice', noticeRouter);
 app.use('/album', albumRouter);
 
 app.use((req, res, next) => {
-    next('Not found error!')
+    next('Not found error!');
 });
 
 app.use((err, req, res, next) => {

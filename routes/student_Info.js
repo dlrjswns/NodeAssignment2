@@ -7,27 +7,35 @@ const router = express.Router();
 //     res.render("info");
 // });
 
-let users = new Array();
+// let users = new Array();
+const users = {};
 
-router.get('/read', (_, res) => {
-    console.log("주일학교 학생 정보: " ,users);
-    res.send(users);
+router.get('/read/all', (_, res) => {
+    console.log(JSON.stringify(users));
+    // res.send(users);
 })
+
+router.get('/read/id')
 
 // 
 router.post("/register", (req, res) => {
-    const student = req.body;
-    users.push(student);
-    console.log(student.name, "학생이 저장되었습니다.")
-    res.send(student);
+    const { id, name, gender } = req.body;
+    // const student = req.body;
+    // users.push(student);
+    users[id] = { name, gender };
+    console.log( users[id].name + "학생이 저장되었습니다.");
+    // res.send(student);
 })
 
-router.delete("/delete/name", (req, res) => {
-    const deleteUser = req.query;
-
-
-    users.delete()
-    console.log(users)
-})
+router.get("/delete", (req, res) => {
+    const id = req.query.id;
+    if(id in users) {
+        console.log(users[id]);
+        console.log(users[id].name, "이 삭제되었습니다.");
+        delete users[id];
+    } else {
+        console.log("해당 유저가 존재하지않습니다.");
+    }
+});
 
 module.exports = router;
