@@ -25,6 +25,10 @@ router.post("/register", (req, res) => {
     const { id, name, gender } = req.body;
     // const student = req.body;
     // users.push(student);
+<<<<<<< HEAD
+    users[id] = { name, gender }; // array of object
+    console.log( users[id].name + "학생이 저장되었습니다.");
+=======
     if(Object.keys(users).includes(id)){
         console.log("${id}은 이미 존재하는 ID 입니다!");
     }
@@ -32,6 +36,7 @@ router.post("/register", (req, res) => {
         users[id] = { name, gender };
         console.log( users[id].name + "학생이 저장되었습니다.");
     }
+>>>>>>> eaa73371f843b0c6d0d1f4bf9446e904ad9fa448
     // res.send(student);
 });
 
